@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" media="screen" href="style/common.screen.css">
+		<link rel="stylesheet" media="screen" href="index.screen.css">
+
+		<script type="module" src="index.client.js"></script>
+
+		<title>Vanilla patterns</title>
+	</head>
+	<body>
+		<div id="content">
+			<h1>Vanilla patterns</h1>
+
+			<p>
+				This website demonstrates some of the common patterns for developing web applications using vanilla JavaScript.
+				The term 'vanilla' is used to describe a plain version of something without adornments and additions. In the
+				context of front end development 'vanilla JavaScript' refers to frameworkless development. The way 'vanilla' is
+				defined by its practitioners ranges from using abstractions that replace frameworks to a more strict definition
+				of not using non-application-specific abstractions. This website shows patterns that are more along the lines
+				of the latter.
+			</p>
+
+			<div id="table-of-contents">
+				<h2>Table of contents</h2>
+
+				<ul>
+					<li><a href="#kiss">KISS—Keep it simple, stupid</a></li>
+					<li><a href="#how-to-read">How to read the examples</a></li>
+					<li><a href="#list-of-examples">List of examples</a></li>
+				</ul>
+			</div>
+
+			<h2 id="kiss">KISS—Keep it simple, stupid</h2>
+
+			<p>
+				Although this website showcases patterns, it is not intended to be a definitive guide on how to develop with
+				vanilla JavaScript. The spirit of vanilla JavaScript development is about embracing the available APIs, and
+				doing
+				the simplest thing that works. Whether some approach is simplest or not is technically not important. Carefully
+				considering options, developing a feel for unnecessary complexity, and regularly pruning it—these are the
+				guiding
+				principles of the 'vanilla way'.
+			</p>
+
+			<h2 id="how-to-read">How to read the examples</h2>
+
+			<p>
+				Each example consists of three parts: HTML, CSS and JavaScript. These technologies are separate by design, and
+				as
+				vanillistas, we embrace this separation. Therefore, do not look at just the JavaScript. Look at the HTML and CSS
+				as well. Some of the examples will use CSS where most developers resort to JavaScript, and this is part of
+				embracing the tools at our disposal.
+			</p>
+
+			<p>
+				The code base follows certain conventions that are repeated in all examples. To avid repeatedly explaining them
+				in each example, I will provide the explanations here:
+			</p>
+
+			<ul>
+				<li>
+					<h3>Use the developer tools</h3>
+
+					<p>
+						You will find the developer tools a great help when viewing the examples. Because the code does not undergo
+						any transformation whatsoever, you will have the complete unadulterated source code available to you in the
+						dev tools. There is no need to open the code in your editor to see how it's actually written.
+					</p>
+
+					<h3>File names</h3>
+
+					<p>
+						The HTML file's name is used as the base for naming other files.
+					</p>
+
+					<p>
+						The CSS files use the same base name as the HTML file, and use a <code>.[media].css</code> double extension.
+						The media is normally "screen" for web applications so for <code>index.html</code>, the CSS would be named
+						<code>index.screen.css</code>, but a printable web application, we might have an
+						<code>index.print.css</code>. When linking these files, we use the <code>media</code> attribute on the
+						<code>&lt;link></code> tag, which must match the media in the file extension.
+					</p>
+
+					<p>
+						JavaScript files normally use a <code>.client.js</code> double extension when there is just one file for the
+						entire application. This is to differentiate it from a potential <code>.server.js</code> file that we might
+						have in a full-stack web application. JavaScript are linked to the HTML page using the standard
+						<code>&lt;script></code> tag, either using a <code>defer</code> attribute (without a value) or
+						<code>type="module"</code>.
+					</p>
+				</li>
+
+				<li>
+					<h3>Placement of the <code>&lt;script></code> tags</h3>
+
+					<p>
+						The <code>&lt;script></code> tags is placed in the <code>&lt;head></code> tag, not the bottom of the
+						<code>&lt;body></code>. When using the <code>defer</code> or <code>type="module"</code> attribute, the
+						JavaScript files are downloaded in parallel with parsing of the HTML. Therefore, we want to allow the
+						browser to find them as soon as possible. The scripts are not executed until the document is parsed and DOM
+						tree populated, so there is no need to place the scripts below page content.
+					</p>
+
+					<p>
+						When using a build tool to bundle our sources, we should ensure that the tool outputs the
+						<code>&lt;script></code> as described here.
+					</p>
+				</li>
+
+				<li>
+					<h3>Use of ES modules</h3>
+
+					<p>
+						Since ES modules are supported in all major browsers, we use them for all JavaScript code. We do this even
+						in cases where we are not importing or exporting any module members because a module also prevents variables
+						from the module from becoming global.
+					</p>
+
+					<p>
+						An alternative to our use of modules would be to use the <code>defer</code> attribute on the
+						<code>&lt;script></code> tag, but then wrap the entire contents of the script file in a block:
+					</p>
+
+					<pre><code>{
+  let someVariable = 'not going to leak into global scope'
+}</code></pre>
+
+					<p>
+						Here, we do not use the second method because it causes the code within the block to be indented in most
+						editors, and those leading tabs/spaces increase the payload.
+					</p>
+				</li>
+
+				<li>
+					<h3>Variables starting with the <code>$</code> character</h3>
+
+					<p>
+						Some variables start with the dollar (<code>$</code>) character. These are variables that contain references
+						to DOM nodes. Sometimes, a variable may be just a single dollar character, and that an "anonymous" node,
+						usually used when iterating over a collection of nodes.
+					</p>
+
+					<p>
+						Some variables start with two dollar characters (<code>$$</code>). This is not a reference to
+						<a href="https://en.wikipedia.org/wiki/Vash_the_Stampede">Vash the Stampede</a>. We use this convention to
+						denote variables that contain references to collections or arrays of DOM nodes.
+					</p>
+				</li>
+
+				<li>
+					<h3>Mismatch between the <code>id</code> attribute and variable name</h3>
+
+					<p>
+						In most cases, there is a mismatch between what the variable is named in the HTML (its <code>id</code>
+						attribute) and how it is referred to in the code. For instance, an element on the page may have an
+						<code>id="clock"</code>, but the variable name may be <code>$output</code>. We do this because HTML
+						<code>id</code> attribute describes what the element is in the content structure, while the JavaScript
+						variable name describes its role in the code. In JavaScript, the clock is an output of the code that
+						calculates and formats the current time. This is a form of loose coupling: changing the role of the element
+						on the page does not require us to update the variable name, and vice versa.
+					</p>
+				</li>
+
+				<li>
+					<h3>Indent with tabs</h3>
+
+					<p>
+						Indenting with spaces uses more characters for indentation than tabs. Since we are not using any build
+						tools, using tabs for indentation saves us characters.
+					</p>
+				</li>
+
+				<li>
+					<h3>Entry point at the top</h3>
+
+					<p>
+						In all examples, the entry point–the function which sets up the application–is called <code>start()</code>,
+						and it is placed at the top. It is invoked as a <code>requestIdleCallback()</code> callback.
+					</p>
+
+					<p>
+						Entry point is placed at the top of the file because it makes it easier for us to orient ourselves when we
+						first visit the code base. The entry point is followed by variables holding references to DOM nodes, and
+						then by other functions ordered by distance from the entry point–those directly used in the entry point are
+						closer to the entry point. We do not follow this rule literally, however. It's mostly about balance. If two
+						functions are strongly related, they should be closer to each other.
+					</p>
+				</li>
+			</ul>
+
+			<h2 id="list-of-examples">List of examples</h2>
+
+			<ul>
+				<li><a href="using-existing-nodes">Using existing nodes</a></li>
+				<li><a href="creating-nodes">Creating nodes</a></li>
+				<li><a href="pre-rendered-list">Pre-rendered list</a></li>
+				<li><a href="paginated-list">Paginated list</a></li>
+				<li><a href="sorted-list">Sorted list</a></li>
+			</ul>
+		</div>
+	</body>
+</html>

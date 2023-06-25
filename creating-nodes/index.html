@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" media="screen" href="/style/common.screen.css">
+		<link rel="stylesheet" media="screen" href="index.screen.css">
+
+		<script type="module" src="index.client.js"></script>
+
+		<title>Node creation - Vanilla patterns</title>
+	</head>
+	<body>
+		<div id="content">
+			<h1><a href="/">Vanilla patterns</a></h1>
+
+			<h2>Node creation</h2>
+
+			<ul id="random-numbers"></ul>
+
+			<button id="generate-number">Generate a random number</button>
+
+			<p>
+				For creating nodes, we use the <code>&lt;template></code> tag. Any markup placed inside it is ignored during
+				parsing, and only parsed once we access its content. This speeds up the initial parsing, but the trade-off is
+				some overhead once we start using the template. An alternative is to have a normal node in a hidden container,
+				but that means that parsing takes longer, and therefore script execution is delayed.
+			</p>
+
+			<template id="list-item">
+				<li><span></span> generated at <span></span></li>
+			</template>
+		</div>
+	</body>
+</html>

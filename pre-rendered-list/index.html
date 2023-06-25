@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" media="screen" href="/style/common.screen.css">
+		<link rel="stylesheet" media="screen" href="index.screen.css">
+
+		<script type="module" src="index.client.js"></script>
+
+		<title>Pre-rendered list - Vanilla patterns</title>
+	</head>
+	<body>
+		<div id="content">
+			<h1><a href="/">Vanilla patterns</a></h1>
+
+			<h2>Pre-rendered list</h2>
+
+			<table id="colors">
+				<thead>
+					<tr>
+						<th scope="col">ID</th>
+						<th scope="col">Name</th>
+						<th scope="col">Stock</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr hidden><td></td><td></td><td></td></tr>
+					<tr hidden><td></td><td></td><td></td></tr>
+					<tr hidden><td></td><td></td><td></td></tr>
+					<tr hidden><td></td><td></td><td></td></tr>
+					<tr hidden><td></td><td></td><td></td></tr>
+					<tr hidden><td></td><td></td><td></td></tr>
+					<tr hidden><td></td><td></td><td></td></tr>
+					<tr hidden><td></td><td></td><td></td></tr>
+					<tr hidden><td></td><td></td><td></td></tr>
+					<tr hidden><td></td><td></td><td></td></tr>
+					<tr hidden><td></td><td></td><td></td></tr>
+					<tr hidden><td></td><td></td><td></td></tr>
+					<tr hidden><td></td><td></td><td></td></tr>
+					<tr hidden><td></td><td></td><td></td></tr>
+					<tr hidden><td></td><td></td><td></td></tr>
+					<tr hidden><td></td><td></td><td></td></tr>
+					<tr hidden><td></td><td></td><td></td></tr>
+					<tr hidden><td></td><td></td><td></td></tr>
+					<tr hidden><td></td><td></td><td></td></tr>
+					<tr hidden><td></td><td></td><td></td></tr>
+				</tbody>
+			</table>
+
+			<button id="load-more">Load more</button>
+
+			<p>
+				When we are working with lists which can be reasonably expected to have a known number of items when the
+				application starts (20), we can pre-render the list items (table rows in this case) and hide them. The rendering
+				logic would populate and unhide the pre-rendered items.
+			</p>
+
+			<p>
+				If later we need to add additional list items, we can clone the existing ones to create new ones.
+			</p>
+
+			<p>
+				The unpopulated elements are marked as <code>hidden</code>, and are therefore hidden from screen readers and
+				similar assistive technology. We also use them as skeleton screen to prevent the content from jumping around the
+				page after the data loads. These elements are only semantically hidden, but visible otherwise.
+			</p>
+
+			<template id="list-item">
+				<li><span></span> generated at <span></span></li>
+			</template>
+		</div>
+	</body>
+</html>

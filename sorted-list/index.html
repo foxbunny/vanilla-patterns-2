@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" media="screen" href="/style/common.screen.css">
+		<link rel="stylesheet" media="screen" href="index.screen.css">
+
+		<script type="module" src="index.client.js"></script>
+
+		<title>Sorted list - Vanilla patterns</title>
+	</head>
+	<body>
+		<div id="content">
+			<h1><a href="/">Vanilla patterns</a></h1>
+
+			<h2>Sorted list</h2>
+
+			<div>
+				<button value="previous" disabled>Previous</button>
+				<button value="next" disabled>Next</button>
+			</div>
+
+			<table id="colors">
+				<thead>
+					<tr>
+						<th scope="col">ID</th>
+						<th scope="col">
+							<button value="color">
+								<span>Name</span>
+								<span class="asc" aria-hidden="true"></span>
+								<span class="desc" aria-hidden="true"></span>
+							</button>
+						</th>
+						<th scope="col">
+							<button value="count">
+								<span>Stock</span>
+								<span class="asc" aria-hidden="true"></span>
+								<span class="desc" aria-hidden="true"></span>
+							</button>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr hidden><td></td><td></td><td></td></tr>
+					<tr hidden><td></td><td></td><td></td></tr>
+					<tr hidden><td></td><td></td><td></td></tr>
+					<tr hidden><td></td><td></td><td></td></tr>
+					<tr hidden><td></td><td></td><td></td></tr>
+					<tr hidden><td></td><td></td><td></td></tr>
+					<tr hidden><td></td><td></td><td></td></tr>
+					<tr hidden><td></td><td></td><td></td></tr>
+					<tr hidden><td></td><td></td><td></td></tr>
+					<tr hidden><td></td><td></td><td></td></tr>
+					<tr hidden><td></td><td></td><td></td></tr>
+					<tr hidden><td></td><td></td><td></td></tr>
+				</tbody>
+			</table>
+
+			<p id="sort-note" aria-live="polite"></p>
+
+			<div>
+				<button value="previous" disabled>Previous</button>
+				<button value="next" disabled>Next</button>
+			</div>
+
+			<p>
+				This is a variant on the <a href="../paginated-list">paginated list</a> example. Here we also have a known
+				maximum number of items per page (12), and a pagination system. However, we additionally perform sorting on the
+				data. We use the same strategy for rendering the list, using pre-rendered rows as a starting point.
+			</p>
+
+			<p>
+				Additionally, we will use a hidden ARIA live region to announce the sort order changes to the user.
+			</p>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" media="screen" href="/style/common.screen.css">
+		<link rel="stylesheet" media="screen" href="index.screen.css">
+
+		<script type="module" src="index.client.js"></script>
+
+		<title>Sorted and filtered list - Vanilla patterns</title>
+	</head>
+	<body>
+		<div id="content">
+			<h1><a href="/">Vanilla patterns</a></h1>
+
+			<h2>Sorted and filtered list</h2>
+
+			<div>
+				<button value="previous" disabled>Previous</button>
+				<button value="next" disabled>Next</button>
+			</div>
+
+			<table id="colors">
+				<caption id="colors-caption">List of colors and their stock quantities</caption>
+				<thead>
+					<tr>
+						<th scope="col">ID</th>
+						<th scope="col">
+							Name
+						</th>
+						<th scope="col">
+							Stock
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr hidden><td></td><td></td><td></td></tr>
+					<tr hidden><td></td><td></td><td></td></tr>
+					<tr hidden><td></td><td></td><td></td></tr>
+					<tr hidden><td></td><td></td><td></td></tr>
+					<tr hidden><td></td><td></td><td></td></tr>
+					<tr hidden><td></td><td></td><td></td></tr>
+					<tr hidden><td></td><td></td><td></td></tr>
+					<tr hidden><td></td><td></td><td></td></tr>
+					<tr hidden><td></td><td></td><td></td></tr>
+					<tr hidden><td></td><td></td><td></td></tr>
+					<tr hidden><td></td><td></td><td></td></tr>
+					<tr hidden><td></td><td></td><td></td></tr>
+				</tbody>
+			</table>
+
+			<div>
+				<button value="previous" disabled>Previous</button>
+				<button value="next" disabled>Next</button>
+			</div>
+
+			<p>
+				This is a variant on the <a href="../pre-rendered-list">pre-rendered list</a> example. Here we have a known
+				maximum number of items per page (12), and a pagination system. Because we know we are only ever going to
+				deal with a fixed number of items.
+			</p>
+
+			<p>
+				We have paginator triggers (buttons) above and below the table. We use the <code>value</code> attribute on the
+				buttons to identify them in the DOM tree.
+			</p>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,42 @@
+body {
+	/* We don't need :root. Variables on BODY will propagate too all of the elements on the page. */
+	--line-height: 1.5; /* We use a float for line height because it makes it easier to perform calculations for, say, heights. */
+
+	font-size: clamp(1rem, 1vw, 2rem);
+	line-height: var(--line-height);
+}
+
+button {
+	color: inherit;
+	font: inherit;
+	cursor: pointer;
+}
+
+#content {
+	max-width: 80ch;
+	margin: 0 auto;
+}
+
+pre > code {
+	width: 100%;
+	padding: 1em;
+}
+
+code {
+	display: inline-block;
+	padding: 0.1em 0.2em;
+
+	color: #994709;
+	border: 1px solid #aaa;
+	background: #f1f1f1;
+	border-radius: 0.1em;
+}
+
+table {
+	width: 100%;
+}
+
+th, td {
+	text-align: right;
+}
+

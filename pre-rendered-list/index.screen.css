@@ -1,0 +1,26 @@
+tr[hidden] {
+	display: table-row; /* Restore visibility */
+
+	/* The skeleton screen styling */
+	animation: breathe 2s infinite;
+	/* Animation delay prevents the initial flash of animation if content loads within 1s. Skeleton animation is only
+	useful to indicate that the content is taking its sweet time loading, so we suppress it for quick-loading stuff. */
+	animation-delay: 1s;
+}
+
+tr[hidden] > * {
+	height: calc(1em * var(--line-height));
+}
+
+@keyframes breathe {
+	from {
+		/* We start on white to minimize the initial flash if content loads fast */
+		background: #fff;
+	}
+	50% {
+		background: #ececec;
+	}
+	to {
+		background: #fff;
+	}
+}
