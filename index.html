@@ -28,21 +28,17 @@
 
 				<p>
 					This website demonstrates some of the common patterns for developing web applications using vanilla
-					JavaScript.
-					The term 'vanilla' is used to describe a plain version of something without adornments and additions. In the
-					context of front end development 'vanilla JavaScript' refers to frameworkless development. The way 'vanilla'
-					is
-					defined by its practitioners ranges from using abstractions that replace frameworks to a more strict
-					definition
-					of not using non-application-specific abstractions. This website shows patterns that are more along the lines
-					of the latter.
+					JavaScript. The term 'vanilla' is used to describe a plain version of something without adornments and
+					additions. In the context of front end development 'vanilla JavaScript' refers to frameworkless development.
+					The way 'vanilla' is defined by its practitioners ranges from using abstractions that replace frameworks to a
+					more strict definition of not using non-application-specific abstractions. This website shows patterns that
+					are more along the lines of the latter.
 				</p>
 
 				<p>
 					Specifically this means you will not find replacements for data binding, component libraries, template
-					engines,
-					and similar. You will instead find various ways to take advantage of features that the browsers offer, such as
-					the template tag, ES modules, custom elements, constraints validation, form API...
+					engines, and similar. You will instead find various ways to take advantage of features that the browsers
+					offer, such as the template tag, ES modules, custom elements, constraints validation, form API...
 				</p>
 
 				<p>
@@ -55,27 +51,23 @@
 				<p>
 					Although this website showcases patterns, it is not intended to be a definitive guide on how to develop with
 					vanilla JavaScript. The spirit of vanilla JavaScript development is about embracing the available APIs, and
-					doing the simplest thing that works. Whether some approach is simplest or not is technically not important.
-					Carefully considering options, developing a feel for unnecessary complexity, and regularly pruning it—these
-					are
-					the guiding principles of the 'vanilla way'.
+					doing the simplest thing that works. Whether some approach described in this website is the simplest or not is
+					technically not important. Carefully considering options, developing a feel for unnecessary complexity, and
+					regularly pruning it—these are the guiding principles of the 'vanilla way'.
 				</p>
 
 				<h2 id="how-to-read">How to read the examples</h2>
 
 				<p>
 					Each example consists of three parts: HTML, CSS and JavaScript. These technologies are separate by design, and
-					as
-					vanillistas, we embrace this separation. Therefore, do not look at just the JavaScript. Look at the HTML and
-					CSS
-					as well. Some of the examples will use CSS where most developers resort to JavaScript, and this is part of
-					embracing the tools at our disposal.
+					as vanillistas, we embrace this separation. Therefore, do not look at just the JavaScript. Look at the HTML
+					and CSS as well. Some of the examples will use CSS where most developers resort to JavaScript, and this is
+					part of embracing the tools at our disposal.
 				</p>
 
 				<p>
-					The code base follows certain conventions that are repeated in all examples. To avid repeatedly explaining
-					them
-					in each example, I will provide the explanations here:
+					The code base follows certain conventions that are repeated in all examples. To avoid repeatedly explaining
+					them in each example, I will provide the explanations here:
 				</p>
 
 				<ul>
@@ -84,10 +76,8 @@
 
 						<p>
 							You will find the developer tools a great help when viewing the examples. Because the code does not
-							undergo
-							any transformation whatsoever, you will have the complete unadulterated source code available to you in
-							the
-							dev tools. There is no need to open the code in your editor to see how it's actually written.
+							undergo any transformation whatsoever, you will have the complete unadulterated source code available to
+							you in the dev tools. There is no need to open the code in your editor to see how it's actually written.
 						</p>
 
 						<h3>File names</h3>
@@ -98,21 +88,18 @@
 
 						<p>
 							The CSS files use the same base name as the HTML file, and use a <code>.[media].css</code> double
-							extension.
-							The media is normally "screen" for web applications so for <code>index.html</code>, the CSS would be named
-							<code>index.screen.css</code>, but a printable web application, we might have an
+							extension. The media is normally "screen" for web applications so for <code>index.html</code>, the CSS
+							would be named <code>index.screen.css</code>, but a printable web application, we might have an
 							<code>index.print.css</code>. When linking these files, we use the <code>media</code> attribute on the
 							<code>&lt;link></code> tag, which must match the media in the file extension.
 						</p>
 
 						<p>
 							JavaScript files normally use a <code>.client.js</code> double extension when there is just one file for
-							the
-							entire application. This is to differentiate it from a potential <code>.server.js</code> file that we
-							might
-							have in a full-stack web application. JavaScript are linked to the HTML page using the standard
-							<code>&lt;script></code> tag, either using a <code>defer</code> attribute (without a value) or
-							<code>type="module"</code>.
+							the entire application. This is to differentiate it from a potential <code>.server.js</code> file that we
+							might have in a full-stack web application. JavaScript are linked to the HTML page using the
+							standard <code>&lt;script></code> tag, either using a <code>defer</code> attribute (without a value)
+							or <code>type="module"</code>.
 						</p>
 					</li>
 
@@ -124,8 +111,7 @@
 							<code>&lt;body></code>. When using the <code>defer</code> or <code>type="module"</code> attribute, the
 							JavaScript files are downloaded in parallel with parsing of the HTML. Therefore, we want to allow the
 							browser to find them as soon as possible. The scripts are not executed until the document is parsed and
-							DOM
-							tree populated, so there is no need to place the scripts below page content.
+							DOM tree populated, so there is no need to place the scripts below page content.
 						</p>
 
 						<p>
@@ -140,8 +126,7 @@
 						<p>
 							Since ES modules are supported in all major browsers, we use them for all JavaScript code. We do this even
 							in cases where we are not importing or exporting any module members because a module also prevents
-							variables
-							from the module from becoming global.
+							variables from the module from becoming global.
 						</p>
 
 						<p>
@@ -164,9 +149,8 @@
 
 						<p>
 							Some variables start with the dollar (<code>$</code>) character. These are variables that contain
-							references
-							to DOM nodes. Sometimes, a variable may be just a single dollar character, and that an "anonymous" node,
-							usually used when iterating over a collection of nodes.
+							references to DOM nodes. Sometimes, a variable may be just a single dollar character, and that an
+							"anonymous" node, usually used when iterating over a collection of nodes.
 						</p>
 
 						<p>
@@ -186,8 +170,7 @@
 							<code>id</code> attribute describes what the element is in the content structure, while the JavaScript
 							variable name describes its role in the code. In JavaScript, the clock is an output of the code that
 							calculates and formats the current time. This is a form of loose coupling: changing the role of the
-							element
-							on the page does not require us to update the variable name, and vice versa.
+							element on the page does not require us to update the variable name, and vice versa.
 						</p>
 					</li>
 
@@ -212,10 +195,8 @@
 							Entry point is placed at the top of the file because it makes it easier for us to orient ourselves when we
 							first visit the code base. The entry point is followed by variables holding references to DOM nodes, and
 							then by other functions ordered by distance from the entry point–those directly used in the entry point
-							are
-							closer to the entry point. We do not follow this rule literally, however. It's mostly about balance. If
-							two
-							functions are strongly related, they should be closer to each other.
+							are closer to the entry point. We do not follow this rule literally, however. It's mostly about balance.
+							If two functions are strongly related, they should be closer to each other.
 						</p>
 					</li>
 				</ul>
