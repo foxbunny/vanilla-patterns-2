@@ -9,7 +9,7 @@ of this repository. If you have NodeJS and NPX installed, you can use this
 command:
 
 ```shell
-npx http-server --port 8000 .
+npx http-server --port 8000 -c-1 .
 ```
 
 Then you can visit http://localhost:8000/ to see the examples.
