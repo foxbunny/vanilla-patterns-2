@@ -12,8 +12,18 @@
 		<title>Sorted list - Vanilla patterns</title>
 	</head>
 	<body>
-		<div id="content">
-			<h1><a href="/">Vanilla patterns</a></h1>
+		<div id="example">
+			<header>
+				<h1><a href="/">Vanilla patterns</a></h1>
+
+				<nav>
+					<ul>
+						<li><a href="../paginated-list">Previous</a></li>
+						<li><a href="../form-validation">Next</a></li>
+					</ul>
+				</nav>
+			</header>
+
 
 			<h2>Sorted list</h2>
 
@@ -43,18 +53,66 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr hidden><td></td><td></td><td></td></tr>
-					<tr hidden><td></td><td></td><td></td></tr>
-					<tr hidden><td></td><td></td><td></td></tr>
-					<tr hidden><td></td><td></td><td></td></tr>
-					<tr hidden><td></td><td></td><td></td></tr>
-					<tr hidden><td></td><td></td><td></td></tr>
-					<tr hidden><td></td><td></td><td></td></tr>
-					<tr hidden><td></td><td></td><td></td></tr>
-					<tr hidden><td></td><td></td><td></td></tr>
-					<tr hidden><td></td><td></td><td></td></tr>
-					<tr hidden><td></td><td></td><td></td></tr>
-					<tr hidden><td></td><td></td><td></td></tr>
+					<tr hidden>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr hidden>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr hidden>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr hidden>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr hidden>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr hidden>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr hidden>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr hidden>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr hidden>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr hidden>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr hidden>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr hidden>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
 				</tbody>
 			</table>
 
@@ -65,15 +123,17 @@
 				<button value="next" disabled>Next</button>
 			</div>
 
-			<p>
-				This is a variant on the <a href="../paginated-list">paginated list</a> example. Here we also have a known
-				maximum number of items per page (12), and a pagination system. However, we additionally perform sorting on the
-				data. We use the same strategy for rendering the list, using pre-rendered rows as a starting point.
-			</p>
+			<div id="notes">
+				<p>
+					This is a variant on the <a href="../paginated-list">paginated list</a> example. Here we also have a known
+					maximum number of items per page (12), and a pagination system. However, we additionally perform sorting on
+					the data. We use the same strategy for rendering the list, using pre-rendered rows as a starting point.
+				</p>
 
-			<p>
-				Additionally, we will use a hidden ARIA live region to announce the sort order changes to the user.
-			</p>
+				<p>
+					Additionally, we will use a hidden ARIA live region to announce the sort order changes to the user.
+				</p>
+			</div>
 		</div>
 	</body>
 </html>

@@ -1,25 +1,95 @@
+/** FONT **/
+
+@font-face {
+	font-family: 'Poppins';
+	src: url('../font/Poppins-Italic.woff2') format('woff2'),
+	url('../font/Poppins-Italic.woff') format('woff');
+	font-weight: normal;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Poppins';
+	src: url('../font/Poppins-BlackItalic.woff2') format('woff2'),
+	url('../font/Poppins-BlackItalic.woff') format('woff');
+	font-weight: 900;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Poppins';
+	src: url('../font/Poppins-Regular.woff2') format('woff2'),
+	url('../font/Poppins-Regular.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Poppins';
+	src: url('../font/Poppins-Black.woff2') format('woff2'),
+	url('../font/Poppins-Black.woff') format('woff');
+	font-weight: 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+
+/** RESET **/
+
+*, *::after, *::before {
+	box-sizing: border-box;
+}
+
+html, body, p, h1, h2, h3, h4, h5, h6, fieldset, ul, ol, li {
+	margin: 0;
+	padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6, button, input, select, textarea {
+	font: inherit;
+	color: inherit;
+}
+
+button, label {
+	cursor: pointer;
+}
+
+li {
+	list-style: none;
+}
+
+:focus-visible, input[type=checkbox]:focus + label, input[type=radio]:focus + label {
+	outline: max(2px, 0.2em) solid var(--focus-outline-color);
+}
+
 body {
 	/* We don't need :root. Variables on BODY will propagate too all of the elements on the page. */
-	--line-height: 1.5; /* We use a float for line height because it makes it easier to perform calculations for, say, heights. */
+	--line-height: 1.7; /* We use a float for line height because it makes it easier to perform calculations for, say, heights. */
+	--accent-color: #994709;
+	--secondary-color: #281b03d6;
+	--secondary-fg-color: #fffcf6;
+	--focus-outline-color: var(--accent-color);
+	--error-color: #ac0606;
+	--error-bg-color: #f2e6e6;
+	--dirty-bg: #f4f4f3ba;
 
-	font-size: clamp(1rem, 1vw, 2rem);
+
+	font-family: Poppins, sans-serif;
 	line-height: var(--line-height);
 }
 
 button {
-	color: inherit;
-	font: inherit;
-	cursor: pointer;
-}
-
-#content {
-	max-width: 80ch;
-	margin: 0 auto;
+	background: var(--accent-color);
+	color: white;
 }
 
 pre > code {
 	width: 100%;
 	padding: 1em;
+	font-size: 1rem;
 }
 
 code {
@@ -34,9 +104,83 @@ code {
 
 table {
 	width: 100%;
+	margin: 1em 0;
+	border-collapse: collapse;
+}
+
+td, th {
+	padding: 0.5em 0.2em;
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
 }
 
 th, td {
 	text-align: right;
 }
 
+input:not([type=checkbox]):not([type=radio]), button, select, textarea {
+	border: 0.1em solid #444;
+	padding: 0.5em;
+	border-radius: 0.2em;
+}
+
+input:is([type=checkbox], [type=radio]) {
+	border: 0.1em solid #444;
+	width: 1em;
+	height: 1em;
+}
+
+#content, #example {
+	max-width: 80ch;
+	margin: 0 auto;
+	padding: 0 1rem;
+}
+
+#example {
+	padding-bottom: 2rem;
+}
+
+#example h1 {
+	font-weight: 900;
+	margin: 1em 0;
+	text-transform: uppercase;
+	background: var(--secondary-color);
+	color: var(--secondary-fg-color);
+	width: max-content;
+	padding: 0.4em 1em;
+	border-radius: 0.2em;
+}
+
+#example h1 a {
+	color: var(--secondary-fg-color);
+}
+
+#example h2 {
+	font-size: 200%;
+	font-weight: 900;
+	margin: 1em 0;
+	color: var(--secondary-color);
+}
+
+#example > header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#example > header nav ul {
+	display: flex;
+	align-items: center;
+	gap: 1em;
+}
+
+#notes {
+	margin-top: 2em;
+	background-color: var(--dirty-bg);
+	padding: 2em;
+	border-radius: 0.2em;
+}
+
+#notes > p {
+	margin-bottom: 1em;
+}

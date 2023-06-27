@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" media="screen" href="/style/common.screen.css">
+		<link rel="stylesheet" media="screen" href="index.screen.css">
+
+		<script type="module" src="index.client.js"></script>
+
+		<title>Form validation - Vanilla Patterns</title>
+	</head>
+	<body>
+		<div id="example">
+			<header>
+				<h1><a href="/">Vanilla Patterns</a></h1>
+
+				<nav>
+					<ul>
+						<li><a href="../sorted-list">Previous</a></li>
+					</ul>
+				</nav>
+			</header>
+
+			<h2>Form validation</h2>
+
+			<form>
+				<label>
+					<span>Name:</span>
+					<input type="text" name="name" required placeholder=" ">
+				</label>
+				<span id="name-error" role="alert" aria-live="polite" hidden></span>
+
+				<label>
+					<span>Email:</span>
+					<input type="email" name="email" required placeholder=" ">
+				</label>
+				<span id="email-error" role="alert" aria-live="polite" hidden></span>
+
+				<label>
+					<span>Product key:</span>
+					<input type="text" name="key" pattern="([a-zA-Z]{4}-){3}[a-zA-Z]{4}" required placeholder=" " aria-describedby="key-note">
+				</label>
+				<span id="key-error" role="alert" aria-live="polite" hidden></span>
+				<span class="note" id="key-note">Product key looks like XXXX-XXXX-XXXX-XXXX</span>
+
+				<label>
+					<input type="checkbox" name="tos" value="accepted" required>
+					<span>I agree to the Terms of service and Privacy policy</span>
+				</label>
+				<span id="tos-error" role="alert" aria-live="polite" hidden></span>
+
+				<button>Submit</button>
+			</form>
+
+			<div id="notes">
+				<p>
+					This example uses some JavaScript to provide a customized presentation of the built-in
+					<a href="https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation">HTML5 form validation</a>
+					errors. <strong>I don't generally recommend it</strong>, but I present this solution in case any of its
+					aspects are required by	the UX design.
+				</p>
+
+				<p>
+					Normally, the built-in validation causes a popup to appear on the first invalid field. This example suppresses
+					the built-in popup, and instead writes the errors out into a <code>&lt;span></code>. The elements containing
+					error messages are given an
+					<a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/Alert_Role">alert role</a> so
+					that their contents are immediately announced to the screen reader.
+				</p>
+
+				<p>
+					Compared to the built-in form validation, this solution still has some drawbacks. Namely, screen readers may
+					not announce the invalid field (although it will announce the message printed out below it). Also, all error
+					messages are announced one by one, so further customization of the error message may be required for the user
+					to be able to learn which fields have errors.
+				</p>
+			</div>
+		</div>
+	</body>
+</html>

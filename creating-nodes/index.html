@@ -12,25 +12,36 @@
 		<title>Node creation - Vanilla patterns</title>
 	</head>
 	<body>
-		<div id="content">
-			<h1><a href="/">Vanilla patterns</a></h1>
+		<div id="example">
+			<header>
+				<h1><a href="/">Vanilla patterns</a></h1>
+
+				<nav>
+					<ul>
+						<li><a href="../using-existing-nodes">Previous</a></li>
+						<li><a href="../pre-rendered-list">Next</a></li>
+					</ul>
+				</nav>
+			</header>
 
 			<h2>Node creation</h2>
 
-			<ul id="random-numbers"></ul>
-
 			<button id="generate-number">Generate a random number</button>
 
-			<p>
-				For creating nodes, we use the <code>&lt;template></code> tag. Any markup placed inside it is ignored during
-				parsing, and only parsed once we access its content. This speeds up the initial parsing, but the trade-off is
-				some overhead once we start using the template. An alternative is to have a normal node in a hidden container,
-				but that means that parsing takes longer, and therefore script execution is delayed.
-			</p>
+			<ul id="random-numbers"></ul>
 
 			<template id="list-item">
 				<li><span></span> generated at <span></span></li>
 			</template>
+
+			<div id="notes">
+				<p>
+					For creating nodes, we use the <code>&lt;template></code> tag. Any markup placed inside it is ignored during
+					parsing, and only parsed once we access its content. This speeds up the initial parsing, but the trade-off is
+					some overhead once we start using the template. An alternative is to have a normal node in a hidden container,
+					but that means that parsing takes longer, and therefore script execution is delayed.
+				</p>
+			</div>
 		</div>
 	</body>
 </html>

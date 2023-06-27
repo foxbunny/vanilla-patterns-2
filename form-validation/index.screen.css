@@ -1,0 +1,46 @@
+form {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+}
+
+label {
+	display: flex;
+	gap: 0.2em;
+}
+
+label:not(:first-of-type) {
+	margin-top: 1em;
+}
+
+label > span {
+	font-weight: bold;
+}
+
+label:not(:last-of-type) {
+	flex-direction: column;
+}
+
+label:last-of-type {
+	align-items: center;
+}
+
+.invalid > input {
+	border-color: var(--error-color);
+	background-color: var(--error-bg-color);
+}
+
+[role=alert] {
+	color: var(--error-color);
+	margin-bottom: 0.5em;
+}
+
+#key-note {
+	margin-top: -0.5em;
+	font-size: max(14px, 0.875em);
+}
+
+form > button {
+	align-self: flex-start;
+	margin-top: 1em;
+}

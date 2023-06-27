@@ -12,8 +12,17 @@
 		<title>Pre-rendered list - Vanilla patterns</title>
 	</head>
 	<body>
-		<div id="content">
-			<h1><a href="/">Vanilla patterns</a></h1>
+		<div id="example">
+			<header>
+				<h1><a href="/">Vanilla patterns</a></h1>
+
+				<nav>
+					<ul>
+						<li><a href="../creating-nodes">Previous</a></li>
+						<li><a href="../paginated-list">Next</a></li>
+					</ul>
+				</nav>
+			</header>
 
 			<h2>Pre-rendered list</h2>
 
@@ -26,46 +35,128 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr hidden><td></td><td></td><td></td></tr>
-					<tr hidden><td></td><td></td><td></td></tr>
-					<tr hidden><td></td><td></td><td></td></tr>
-					<tr hidden><td></td><td></td><td></td></tr>
-					<tr hidden><td></td><td></td><td></td></tr>
-					<tr hidden><td></td><td></td><td></td></tr>
-					<tr hidden><td></td><td></td><td></td></tr>
-					<tr hidden><td></td><td></td><td></td></tr>
-					<tr hidden><td></td><td></td><td></td></tr>
-					<tr hidden><td></td><td></td><td></td></tr>
-					<tr hidden><td></td><td></td><td></td></tr>
-					<tr hidden><td></td><td></td><td></td></tr>
-					<tr hidden><td></td><td></td><td></td></tr>
-					<tr hidden><td></td><td></td><td></td></tr>
-					<tr hidden><td></td><td></td><td></td></tr>
-					<tr hidden><td></td><td></td><td></td></tr>
-					<tr hidden><td></td><td></td><td></td></tr>
-					<tr hidden><td></td><td></td><td></td></tr>
-					<tr hidden><td></td><td></td><td></td></tr>
-					<tr hidden><td></td><td></td><td></td></tr>
+					<tr hidden>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr hidden>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr hidden>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr hidden>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr hidden>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr hidden>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr hidden>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr hidden>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr hidden>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr hidden>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr hidden>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr hidden>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr hidden>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr hidden>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr hidden>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr hidden>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr hidden>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr hidden>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr hidden>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr hidden>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
 				</tbody>
 			</table>
 
 			<button id="load-more">Load more</button>
 
-			<p>
-				When we are working with lists which can be reasonably expected to have a known number of items when the
-				application starts (20), we can pre-render the list items (table rows in this case) and hide them. The rendering
-				logic would populate and unhide the pre-rendered items.
-			</p>
+			<div id="notes">
+				<p>
+					When we are working with lists which can be reasonably expected to have a known number of items when the
+					application starts (20), we can pre-render the list items (table rows in this case) and hide them. The
+					rendering logic would populate and unhide the pre-rendered items.
+				</p>
 
-			<p>
-				If later we need to add additional list items, we can clone the existing ones to create new ones.
-			</p>
+				<p>
+					If later we need to add additional list items, we can clone the existing ones to create new ones.
+				</p>
 
-			<p>
-				The unpopulated elements are marked as <code>hidden</code>, and are therefore hidden from screen readers and
-				similar assistive technology. We also use them as skeleton screen to prevent the content from jumping around the
-				page after the data loads. These elements are only semantically hidden, but visible otherwise.
-			</p>
+				<p>
+					The unpopulated elements are marked as <code>hidden</code>, and are therefore hidden from screen readers and
+					similar assistive technology. We also use them as skeleton screen to prevent the content from jumping around
+					the page after the data loads. These elements are only semantically hidden, but visible otherwise.
+				</p>
+			</div>
 
 			<template id="list-item">
 				<li><span></span> generated at <span></span></li>

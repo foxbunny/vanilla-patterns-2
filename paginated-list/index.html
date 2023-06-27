@@ -9,13 +9,22 @@
 
 		<script type="module" src="index.client.js"></script>
 
-		<title>Sorted and filtered list - Vanilla patterns</title>
+		<title>Paginated list - Vanilla patterns</title>
 	</head>
 	<body>
-		<div id="content">
-			<h1><a href="/">Vanilla patterns</a></h1>
+		<div id="example">
+			<header>
+				<h1><a href="/">Vanilla patterns</a></h1>
 
-			<h2>Sorted and filtered list</h2>
+				<nav>
+					<ul>
+						<li><a href="../pre-rendered-list">Previous</a></li>
+						<li><a href="../sorted-list">Next</a></li>
+					</ul>
+				</nav>
+			</header>
+
+			<h2>Paginated list</h2>
 
 			<div>
 				<button value="previous" disabled>Previous</button>
@@ -36,18 +45,66 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr hidden><td></td><td></td><td></td></tr>
-					<tr hidden><td></td><td></td><td></td></tr>
-					<tr hidden><td></td><td></td><td></td></tr>
-					<tr hidden><td></td><td></td><td></td></tr>
-					<tr hidden><td></td><td></td><td></td></tr>
-					<tr hidden><td></td><td></td><td></td></tr>
-					<tr hidden><td></td><td></td><td></td></tr>
-					<tr hidden><td></td><td></td><td></td></tr>
-					<tr hidden><td></td><td></td><td></td></tr>
-					<tr hidden><td></td><td></td><td></td></tr>
-					<tr hidden><td></td><td></td><td></td></tr>
-					<tr hidden><td></td><td></td><td></td></tr>
+					<tr hidden>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr hidden>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr hidden>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr hidden>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr hidden>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr hidden>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr hidden>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr hidden>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr hidden>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr hidden>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr hidden>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr hidden>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
 				</tbody>
 			</table>
 
@@ -56,16 +113,18 @@
 				<button value="next" disabled>Next</button>
 			</div>
 
-			<p>
-				This is a variant on the <a href="../pre-rendered-list">pre-rendered list</a> example. Here we have a known
-				maximum number of items per page (12), and a pagination system. Because we know we are only ever going to
-				deal with a fixed number of items.
-			</p>
+			<div id="notes">
+				<p>
+					This is a variant on the <a href="../pre-rendered-list">pre-rendered list</a> example. Here we have a known
+					maximum number of items per page (12), and a pagination system. Because we know we are only ever going to
+					deal with a fixed number of items.
+				</p>
 
-			<p>
-				We have paginator triggers (buttons) above and below the table. We use the <code>value</code> attribute on the
-				buttons to identify them in the DOM tree.
-			</p>
+				<p>
+					We have paginator triggers (buttons) above and below the table. We use the <code>value</code> attribute on the
+					buttons to identify them in the DOM tree.
+				</p>
+			</div>
 		</div>
 	</body>
 </html>
