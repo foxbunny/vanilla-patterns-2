@@ -10,6 +10,7 @@
 th button {
 	border: none;
 	background: none;
+	color: inherit;
 }
 
 /*
