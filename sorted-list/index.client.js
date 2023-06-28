@@ -31,7 +31,7 @@ let descending = false
 let sortField = ''
 let sortDir = ascending
 let data = []
-let validSortColumns = ['color', 'count']
+let validSortColumns = ['color', 'stock']
 
 // We map from sort parameters to a more human-sounding text for the sort order announcement aimed at screen readers.
 let sortDirectionNoteText = {
@@ -46,9 +46,17 @@ let sortDirectionNoteText = {
 }
 
 function updatePageFromURL() {
+	// Sorting and pagination are controlled by the URL. This is the so-called "one-way" data flow, where the flow looks
+	// like this:
+	//
+	// UI event -> url -> URL event -> DOM
+	//
+	// You will see in the rest of the code that we always update the URL only, instead of directly manipulating the DOM.
+
 	let params = new URLSearchParams(location.search)
 	page = getNumericParam(params, 'page', 1)
-	sortField = validSortColumns.find(field => field == getStringParam(params, 'sort')) || ''
+	let sortFieldParam = getStringParam(params, 'sort')
+	sortField = validSortColumns.find(field => field == sortFieldParam) || ''
 	sortDir = getBoolParam(params, 'asc')
 	getColors().then(() => {
 		updateTableHeader()

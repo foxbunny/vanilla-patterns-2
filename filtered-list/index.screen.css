@@ -1,0 +1,57 @@
+#sort-note {
+	/* This makes the note 'visually hidden': not visible on the page but accessible by screen readers */
+	position: absolute;
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	right: 1000vw;
+}
+
+th button {
+	border: none;
+	background: none;
+	color: inherit;
+}
+
+/*
+We cheat a bit here and use Unicode characters as sort indicators. The concept is the same for other methods for
+displaying the graphics, though. We use CSS to control which ones are showing and what they look like, rather than
+manipulating the DOM in JavaScript. We take advantage of the `aria-sort` attribute set on the <th> element that encloses
+these indicators.
+*/
+
+.asc::after {
+	content: '△'
+}
+
+.desc::after {
+	content: '▽'
+}
+
+[aria-sort=ascending] .asc::after {
+	content: '▲'
+}
+
+[aria-sort=descending] .desc::after {
+	content: '▼'
+}
+
+#filters {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+	align-items: flex-start;
+}
+
+#filters > label {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 0.5em;
+}
+
+#filters > label > span {
+	display: inline-block;
+	width: 10em;
+	font-weight: 900;
+}

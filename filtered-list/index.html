@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" media="screen" href="../style/common.screen.css">
+		<link rel="stylesheet" media="screen" href="index.screen.css">
+
+		<script type="module" src="index.client.js"></script>
+
+		<title>Filtered list - Vanilla patterns</title>
+	</head>
+	<body>
+		<div id="example">
+			<header>
+				<h1><a href="..">Vanilla patterns</a></h1>
+
+				<nav>
+					<ul>
+						<li><a href="../sorted-list">Previous</a></li>
+						<li><a href="../form-validation">Next</a></li>
+					</ul>
+				</nav>
+			</header>
+
+			<h2>Filtered list</h2>
+
+			<div id="filters">
+				<label>
+					<span>Filter by color:</span>
+					<input type="text" name="color">
+				</label>
+				<label>
+					<span>Minimum stock:</span>
+					<input type="number" name="stock">
+				</label>
+			</div>
+
+			<table id="colors">
+				<thead>
+					<tr>
+						<th scope="col">ID</th>
+						<th scope="col">
+							<button value="color">
+								<span>Color</span>
+								<span class="asc" aria-hidden="true"></span>
+								<span class="desc" aria-hidden="true"></span>
+							</button>
+						</th>
+						<th scope="col">
+							<button value="stock">
+								<span>Stock</span>
+								<span class="asc" aria-hidden="true"></span>
+								<span class="desc" aria-hidden="true"></span>
+							</button>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>1</td>
+						<td>white</td>
+						<td>20564</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>cyan</td>
+						<td>80370</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>grey</td>
+						<td>40667</td>
+					</tr>
+					<tr>
+						<td>4</td>
+						<td>purple</td>
+						<td>69124</td>
+					</tr>
+					<tr>
+						<td>5</td>
+						<td>grey</td>
+						<td>92628</td>
+					</tr>
+					<tr>
+						<td>6</td>
+						<td>black</td>
+						<td>42057</td>
+					</tr>
+					<tr>
+						<td>7</td>
+						<td>silver</td>
+						<td>12974</td>
+					</tr>
+					<tr>
+						<td>8</td>
+						<td>gold</td>
+						<td>38113</td>
+					</tr>
+					<tr>
+						<td>9</td>
+						<td>silver</td>
+						<td>35729</td>
+					</tr>
+					<tr>
+						<td>10</td>
+						<td>cyan</td>
+						<td>21899</td>
+					</tr>
+					<tr>
+						<td>11</td>
+						<td>black</td>
+						<td>43400</td>
+					</tr>
+					<tr>
+						<td>12</td>
+						<td>maroon</td>
+						<td>65622</td>
+					</tr>
+				</tbody>
+			</table>
+
+			<p id="sort-note" aria-live="polite"></p>
+
+			<div id="notes">
+				<p>
+					For large dynamic lists for which we store data in the memory, filtering is no different from sorting and
+					otherwise rendering the list. This example shows filtering in a specific scenario where the list is small
+					enough to make it feasible to render it in whole. Here we filter the list not by re-rendering every node but
+					toggling their <code>hidden</code> attribute.
+				</p>
+
+				<p>
+					This technique can be applied for lists that have fewer than a few hundred items and are not paginated. Do not
+					forget to test the performance, though, because the performance also depends on other factors such as the
+					number of nodes in each row, styling, etc.
+				</p>
+
+				<p>
+					We have included an example of sorting as well. This implementation of sorting relies on the DOM alone, and
+					also serves as a demonstration of how sorting and filtering combine in this scenario.
+				</p>
+			</div>
+		</div>
+	</body>
+</html>

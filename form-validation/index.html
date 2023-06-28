@@ -18,7 +18,7 @@
 
 				<nav>
 					<ul>
-						<li><a href="../sorted-list">Previous</a></li>
+						<li><a href="../filtered-list">Previous</a></li>
 					</ul>
 				</nav>
 			</header>
@@ -61,38 +61,6 @@
 			</form>
 
 			<div id="notes">
-				<p>
-					This example uses some JavaScript to provide a customized presentation of the built-in
-					<a href="https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation">HTML5 form validation</a>
-					errors. <strong>I don't generally recommend it</strong>, but I present this solution in case any of its
-					aspects are required by	the UX design.
-				</p>
-
-				<p>
-					Normally, the built-in validation causes a popup to appear on the first invalid field. This example suppresses
-					the built-in popup, and instead writes the errors out into a <code>&lt;span></code>. The elements containing
-					error messages are given an
-					<a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/Alert_Role">alert role</a> so
-					that their contents are immediately announced to the screen reader.
-				</p>
-
-				<p>
-					JavaScript in this example is used to enhance the behavior of the form. When JavaScript is disabled,
-					validation still works, and only presentation is affected. This "feature" is not relevant for JavaScript
-					applications, but may be useful for server-rendered web pages.
-				</p>
-
-				<p>
-					An example of custom validation is provided for the "Something nice" field. This field is validated using
-					JavaScript. With JavaScript disabled, the field will not validate.
-				</p>
-
-				<p>
-					Compared to the built-in form validation, this solution still has some drawbacks. Namely, screen readers may
-					not announce the invalid field (although it will announce the message printed out below it). Also, all error
-					messages are announced one by one, so further customization of the error message may be required for the user
-					to be able to learn which fields have errors.
-				</p>
 			</div>
 		</div>
 	</body>

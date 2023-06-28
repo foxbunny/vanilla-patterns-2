@@ -18,6 +18,12 @@ let page = 1
 let data = []
 
 function updatePageFromURL() {
+	// Pagination is controlled by the URL. This is the so-called "one-way" data flow, where the flow looks like this:
+	//
+	// UI event -> url -> URL event -> DOM
+	//
+	// You will see in the rest of the code that we always update the URL only, instead of directly manipulating the DOM.
+
 	page = Number(new URLSearchParams(location.search).get('page') || 1)
 	getColors().then(() => {
 		updateTable()
