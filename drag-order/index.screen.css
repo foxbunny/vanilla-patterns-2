@@ -1,0 +1,86 @@
+form, fieldset {
+	display: flex;
+	flex-direction: column;
+}
+
+form {
+	gap: 1em;
+	max-width: 80ch;
+}
+
+form[data-dragging] fieldset:hover,
+fieldset[data-dragging]:active {
+	cursor: grabbing;
+}
+
+legend {
+	position: absolute;
+	right: 100vw;
+	opacity: 0;
+}
+
+fieldset {
+	--drag-offset: 0;
+	gap: 0.5em;
+	padding: 0.5em 10ch 0.5em 0.5em;
+	position: relative;
+	background: white;
+	transition: box-shadow 0.2s;
+}
+
+[data-drag-enabled] fieldset {
+	cursor: grab;
+}
+
+fieldset[data-dragging] {
+	transform: translateY(var(--drag-offset));
+	box-shadow: 0 0.2em 0.4em rgba(0, 0, 0, 0.2);
+	z-index: 1;
+}
+
+
+fieldset:not([data-dragging]) {
+	/*
+		Add transition to the non-dragged version only so that we have an animation
+		when the element bounces back to position after being dropped.
+	 */
+	transition:
+		transform 0.3s,
+		box-shadow 0.3s;
+}
+
+label {
+	display: block;
+	width: max-content;
+}
+
+label:nth-of-type(1) {
+	position: absolute;
+	top: 0.5em;
+	right: 0.5em;
+	overflow: hidden;
+}
+
+label:nth-of-type(1) span {
+	position: absolute;
+	opacity: 0;
+	pointer-events: none;
+}
+
+label:nth-of-type(1) input {
+	width: 5ch;
+}
+
+label:nth-of-type(2) {
+	display: flex;
+	align-items: center;
+	gap: 0.5em;
+}
+
+label:nth-of-type(2) span {
+	flex-shrink: 0;
+}
+
+label:nth-of-type(2) input {
+	flex-grow: 1;
+}
