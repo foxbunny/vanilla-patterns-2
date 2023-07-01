@@ -48,6 +48,10 @@ html, body, p, h1, h2, h3, h4, h5, h6, fieldset, ul, ol, li {
 	padding: 0;
 }
 
+dialog {
+	padding: 0;
+}
+
 h1, h2, h3, h4, h5, h6, button, input, select, textarea {
 	font: inherit;
 	color: inherit;
@@ -64,6 +68,8 @@ li {
 :focus-visible, input[type=checkbox]:focus + label, input[type=radio]:focus + label {
 	outline: max(2px, 0.2em) solid var(--focus-outline-color);
 }
+
+/** PAGE STYLES */
 
 body {
 	/* We don't need :root. Variables on BODY will propagate too all of the elements on the page. */
@@ -92,7 +98,7 @@ pre > code {
 	font-size: 1rem;
 }
 
-code {
+code, kbd {
 	display: inline-block;
 	padding: 0.1em 0.2em;
 
@@ -183,4 +189,21 @@ input:is([type=checkbox], [type=radio]) {
 
 #notes > p {
 	margin-bottom: 1em;
+}
+
+dialog {
+	border: none;
+	box-shadow: 0 0.2em 1em rgba(0, 0, 0, 0.2);
+}
+
+#example dialog h2 {
+	padding: 1em;
+	margin: 0;
+
+	background-color: var(--accent-color);
+	color: var(--secondary-fg-color);
+	font-size: 100%;
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
 }

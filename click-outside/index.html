@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" media="screen" href="../style/common.screen.css">
+		<link rel="stylesheet" media="screen" href="index.screen.css">
+
+		<script type="module" src="index.client.js"></script>
+
+		<title>Click outside - Vanilla Patterns</title>
+	</head>
+	<body>
+		<div id="example">
+			<header>
+				<h1><a href="..">Vanilla Patterns</a></h1>
+
+				<nav>
+					<ul>
+						<li><a href="../form-validation">Previous</a></li>
+					</ul>
+				</nav>
+			</header>
+
+			<h2>Click outside</h2>
+
+			<button id="open-box">Open the dialog</button>
+
+			<dialog id="dialog">
+				<click-boundary>
+					<h2>Test dialog</h2>
+					<p>This is a dialog. Click outside it or press the <kbd>Escape</kbd> key to close.</p>
+				</click-boundary>
+			</dialog>
+
+			<div id="notes">
+				<p>
+					This example shows how we can utilize custom elements to handle clicks (and possibly other events) that
+					happen outside the element.
+				</p>
+
+				<p>
+					The example uses a button to open a dialog, and then allows the dialog to be closed by clicking outside the
+					dialog content area. The content is wrapped in <code>&lt;click-boundary></code> custom element, which emits a
+					'clickoutside' event for clicks happening outside it. Note that we must ensure the <code>&lt;dialog></code>
+					element does not have any padding so that the custom element can cover its entire area.
+				</p>
+
+				<p>
+					The example shows a widget that needs to close when user clicks outside it.
+				</p>
+			</div>
+		</div>
+	</body>
+</html>
