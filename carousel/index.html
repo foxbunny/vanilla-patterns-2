@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" media="screen" href="../style/common.screen.css">
+		<link rel="stylesheet" media="screen" href="index.screen.css">
+
+		<script type="module" src="index.client.js"></script>
+
+		<title>Carousel - Vanilla Patterns</title>
+	</head>
+	<body>
+		<div id="example">
+			<header>
+				<h1><a href="..">Vanilla Patterns</a></h1>
+
+				<nav>
+					<ul>
+						<li><a href="../click-outside">Previous</a></li>
+					</ul>
+				</nav>
+			</header>
+
+			<h2>Carousel</h2>
+
+			<ul id="photo-list">
+				<li>
+					<a id="photo-1" href="01.html" title="Full photograph">
+						<img
+							srcset="photos/macro_sq_01_480.webp, photos/macro_sq_01_960.webp 2x"
+							src="photos/macro_sq_01.jpg"
+							alt="Detail from the Dandelion seeds photograph"
+							loading="lazy"
+						>
+					</a>
+				</li>
+				<li>
+					<a id="photo-2" href="02.html" title="Full photograph">
+						<img
+							srcset="photos/macro_sq_02_480.webp, photos/macro_sq_02_960.webp 2x"
+							src="photos/macro_sq_02.jpg"
+							alt="Detail from the Water droplet on grass photograph"
+							loading="lazy"
+						>
+					</a>
+				</li>
+				<li>
+					<a id="photo-3" href="03.html" title="Full photograph">
+						<img
+							srcset="photos/macro_sq_03_480.webp, photos/macro_sq_03_960.webp 2x"
+							src="photos/macro_sq_03.jpg"
+							alt="Detail from the Dandelion photograph"
+							loading="lazy"
+						>
+					</a>
+				</li>
+				<li>
+					<a id="photo-4" href="04.html" title="Full photograph">
+						<img
+							srcset="photos/macro_sq_04_480.webp, photos/macro_sq_04_960.webp 2x"
+							src="photos/macro_sq_04.jpg"
+							alt="Detail from the Hibiscus photograph"
+							loading="lazy"
+						>
+					</a>
+				</li>
+				<li>
+					<a id="photo-5" href="05.html" title="Full photograph">
+						<img
+							srcset="photos/macro_sq_05_480.webp, photos/macro_sq_05_960.webp 2x"
+							src="photos/macro_sq_05.jpg"
+							alt="Detail from the Thistle flower photograph"
+							loading="lazy"
+						>
+					</a>
+				</li>
+				<li>
+					<a id="photo-6" href="06.html" title="Full photograph">
+						<img
+							srcset="photos/macro_sq_06_480.webp, photos/macro_sq_06_960.webp 2x"
+							src="photos/macro_sq_06.jpg"
+							alt="Detail from the Lover shield bugs photograph"
+							loading="lazy"
+						>
+					</a>
+				</li>
+			</ul>
+
+			<div id="dot-indicators" hidden></div>
+
+			<div id="notes">
+				<p>
+					This is an example of a carousel&mdash;in particular, the image carousel. It's a typical pattern used when we
+					want to present multiple items as a horizontal list where only a subset of items is shown at any given moment.
+					This implementation is fully responsive and supports script-off (no JavaScript mode).
+				</p>
+
+				<p>
+					We use the <code>loading="lazy"</code> attribute on all image tags so that images that are not shown initially
+					are not loaded immediately. The images also have a <code>srcset</code> attribute which is used to specify a
+					WEBP format version, as well as a higher resolution version, and the <code>src</code> is only used as a
+					fallback JPEG version in browsers that do not support WEBP (only IE and older versions of Safari, luckily).
+				</p>
+
+				<p>
+					Because the carousel supports script-off, the JavaScript marks the carousel as <code>data-active</code> when
+					it kicks in. This changes the styling a bit like hiding scrollbars.
+				</p>
+			</div>
+		</div>
+	</body>
+</html>

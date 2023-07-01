@@ -1,0 +1,112 @@
+#photo-list {
+	/* The carousel can be customized using these par */
+	--image-width: 480px;
+	--cols: 3;
+	--col-gap: 0.2em; /* can't use just 0 here, because that screws up the calc below */
+	display: flex;
+	gap: var(--col-gap);
+	overflow-x: auto;
+	padding: 0.5em 0.3em 1em; /* Allow the focus frame to become more visible by adding a gap between the scrollbar and the content */
+	margin: 0 auto;
+
+	/*
+		Make each child snap to the edge of this container. This is what makes it work like a proper carousel even when
+		JavaScript is disabled. See here for more information:
+
+		https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Scroll_Snap/Basic_concepts
+	 */
+	scroll-snap-type: x mandatory;
+	scroll-behavior: smooth;
+}
+
+@media (width < 40em) {
+	#photo-list {
+		--cols: 2; /* Note that calc() is reactive, so updating this will update any calcs where this is used */
+	}
+}
+
+@media (width < 22em) {
+	#photo-list {
+		--cols: 1;
+	}
+}
+
+#photo-list[data-active]::-webkit-scrollbar {
+	/*
+		This is the scrollbar hider code for Webkit browsers.
+
+		https://css-tricks.com/almanac/properties/s/scrollbar/
+	 */
+	height: 0;
+	opacity: 0;
+}
+
+#photo-list[data-active] {
+	/*
+		This is the scrollbar hider code for Firefox. This is actually only supported by Firefox even though it looks like
+		a standard CSS rule.
+
+		https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Scrollbars
+	 */
+	scrollbar-color: transparent transparent;
+	scrollbar-width: none;
+}
+
+#photo-list li {
+	flex: none;
+	flex-shrink: 0;
+	width: calc((100% - var(--col-gap) * (var(--cols) - 1)) / var(--cols));
+	max-width: min(var(--image-width), 100%);
+
+	scroll-snap-align: center;
+}
+
+#photo-list a {
+	display: inline-flex;
+
+	border-radius: 0.2em;
+	overflow: hidden;
+	transform: scale(0.95);
+	transition: transform 0.3s;
+}
+
+#photo-list img {
+	width: 100%;
+}
+
+#photo-list a:is(:focus, :hover) {
+	transform: scale(1);
+}
+
+#dot-indicators:not([hidden]) {
+	display: flex;
+	gap: 1em;
+	width: max-content;
+	margin: 1em auto;
+}
+
+#dot-indicators span {
+	display: block;
+	width: 1.4em;
+	height: 1.4em;
+
+	/* Hide the text */
+	overflow: hidden;
+	white-space: nowrap;
+	text-indent: 100vh;
+	cursor: pointer;
+}
+
+#dot-indicators span::before {
+	content: '';
+	display: block;
+	width: 1em;
+	height: 1em;
+	border-radius: 50%;
+	border: 0.2em solid #555;
+	background: transparent;
+}
+
+#dot-indicators span[data-visible=true]::before {
+	background: #555;
+}
