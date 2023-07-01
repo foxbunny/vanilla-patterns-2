@@ -83,12 +83,13 @@
 	gap: 1em;
 	width: max-content;
 	margin: 1em auto;
+	max-width: 100%;
 }
 
 #dot-indicators span {
 	display: block;
-	width: 1.4em;
-	height: 1.4em;
+	width: 1em;
+	height: 1em;
 
 	/* Hide the text */
 	overflow: hidden;
