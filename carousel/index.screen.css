@@ -2,7 +2,7 @@
 	/* The carousel can be customized using these parameters */
 	--image-width: 480px;
 	--cols: 3;
-	--col-gap: 0.2em; /* can't use just 0 here, because that screws up the calc below */
+	--col-gap: 0.2em;
 
 	display: flex;
 	gap: var(--col-gap);
