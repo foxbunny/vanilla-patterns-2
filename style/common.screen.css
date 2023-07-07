@@ -84,8 +84,11 @@ body {
 	--line-height: 1.7; /* We use a float for line height because it makes it easier to perform calculations for, say, heights. */
 	--accent-color: #994709;
 	--accent-active-color: #693004;
+	--accent-disabled-color: #837672;
+	--accent-active-disabled-color: #5d574d;
 	--secondary-color: #281b03d6;
 	--secondary-fg-color: #fffcf6;
+	--secondary-disabled-fg-color: #dad7cd;
 	--focus-outline-color: var(--accent-color);
 	--error-color: #ac0606;
 	--error-bg-color: #f2e6e6;

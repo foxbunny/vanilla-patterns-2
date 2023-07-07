@@ -7,6 +7,8 @@
 		<link rel="stylesheet" media="screen" href="../style/common.screen.css">
 		<link rel="stylesheet" media="screen" href="index.screen.css">
 
+		<script type="module" src="index.client.js"></script>
+
 		<title>Button Group - Vanilla Patterns</title>
 	</head>
 	<body>
@@ -23,21 +25,41 @@
 
 			<h2>Button group</h2>
 
-			<fieldset id="group">
-				<legend>Calculation interval</legend>
+			<p id="output" aria-live="polite">No interval selected</p>
 
-				<input type="radio" id="period-1y" name="period" value="1y">
-				<label for="period-1y">1y</label>
+			<form>
+				<fieldset id="group">
+					<legend>Calculation interval</legend>
 
-				<input type="radio" id="period-2y" name="period" value="2y">
-				<label for="period-2y">2y</label>
+					<input type="radio" id="period-1y" name="period" value="1y">
+					<label for="period-1y">1y</label>
 
-				<input type="radio" id="period-5y" name="period" value="5y">
-				<label for="period-5y">5y</label>
+					<input type="radio" id="period-2y" name="period" value="2y">
+					<label for="period-2y">2y</label>
 
-				<input type="radio" id="period-all" name="period" value="all">
-				<label for="period-all">all</label>
-			</fieldset>
+					<input type="radio" id="period-5y" name="period" value="5y">
+					<label for="period-5y">5y</label>
+
+					<input type="radio" id="period-all" name="period" value="all">
+					<label for="period-all">all</label>
+				</fieldset>
+
+				<fieldset id="other-group" disabled>
+					<legend>Group</legend>
+
+					<input type="radio" id="group-a" name="group" value="a">
+					<label for="group-a">A</label>
+
+					<input type="radio" id="group-b" name="group" value="b">
+					<label for="group-b">B</label>
+
+					<input type="radio" id="group-c" name="group" value="5y">
+					<label for="group-c">C</label>
+
+					<input type="radio" id="group-any" name="group" checked>
+					<label for="group-any">any</label>
+				</fieldset>
+			</form>
 
 			<div id="notes">
 				<p>
@@ -45,6 +67,12 @@
 					buttons, and in this example, we use radio buttons and simply provide CSS to make them look like buttons.
 					There is no JavaScript in this example. This pattern is usually used when the number of options is limited.
 					For a larger set of options, a select list or an auto-complete input is more common.
+				</p>
+
+				<p>
+					Though the <code>&lt;fieldset></code> element is generally semantically correct for a group of form controls
+					like this one, it also has other benefits as well. For instance, it is possible to disable the group by
+					disabling the fieldset rather than the individual controls.
 				</p>
 
 				<p>

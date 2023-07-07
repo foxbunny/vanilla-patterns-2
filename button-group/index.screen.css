@@ -36,13 +36,25 @@ selectors onto the existing declaration block. Here we duplicate the code for th
 	border-bottom-left-radius: 0;
 }
 
-[type=radio]:not(:checked) + label {
+[type=radio]:not(:checked):not(:disabled) + label {
 	/* We qualify the input with :not(:checked) to reduce the likelihood of conflicts */
 	background: var(--accent-color);
 }
 
-[type=radio]:checked + label {
+[type=radio]:disabled + label {
+	color: var(--secondary-disabled-fg-color);
+}
+
+[type=radio]:disabled:not(:checked) + label {
+	background: var(--accent-disabled-color);
+}
+
+[type=radio]:checked:not(:disabled) + label {
 	background-color: var(--accent-active-color);
+}
+
+[type=radio]:disabled:checked + label {
+	background-color: var(--accent-active-disabled-color);
 }
 
 [type=radio]:focus + label {
@@ -73,4 +85,15 @@ fieldset legend {
 fieldset legend::after {
 	/* We add the colon in CSS as legends are not exactly the same as a label */
 	content: ':'
+}
+
+#output {
+	display: block;
+	margin-bottom: 1em;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
 }
