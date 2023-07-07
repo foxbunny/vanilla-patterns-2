@@ -1,0 +1,76 @@
+/*
+These styles are copied from the common.screen.css file. Normally we would avoid this kind of duplication by moving the
+selectors onto the existing declaration block. Here we duplicate the code for the sake of demonstration.
+ */
+
+[type=radio] + label {
+	/*
+	We are using the attribute selector for the input to avoid applying this style to labels that sit adjacent to any
+	other types of inputs.
+
+	This declaration block only applies the common styles that are not related to specific states.
+  */
+	padding: 0.5em 1em;
+
+	border: 0.1em solid #444;
+	border-radius: 0.2em;
+	color: white;
+	text-transform: uppercase;
+}
+
+[type=radio] + label:not(:last-of-type) {
+	border-right: 0;
+}
+
+[type=radio] + label:not(:first-of-type):not(:last-of-type) {
+	border-radius: 0;
+}
+
+[type=radio] + label:first-of-type {
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+[type=radio] + label:last-of-type {
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+[type=radio]:not(:checked) + label {
+	/* We qualify the input with :not(:checked) to reduce the likelihood of conflicts */
+	background: var(--accent-color);
+}
+
+[type=radio]:checked + label {
+	background-color: var(--accent-active-color);
+}
+
+[type=radio]:focus + label {
+	/* We raise the input above others so the focus outline is fully visible */
+	z-index: 1;
+}
+
+fieldset {
+	display: flex;
+}
+
+fieldset [type=radio] {
+	/* Visually hidden */
+	position: absolute;
+	right: 100vw;
+	opacity: 0;
+}
+
+fieldset legend {
+	/*
+	Make the legend look like a regular form control label. Interestingly, even though the legend element is in a flexbox
+	layout, it behaves differently and doesn't fall in line with the other elements. This works for us fine in this case.
+	If we need the legend/label to be on the same row as the button group, we can use `display: content` on the legend.
+	*/
+	font-weight: 900;
+}
+
+fieldset legend::after {
+	/* We add the colon in CSS as legends are not exactly the same as a label */
+	content: ':'
+}

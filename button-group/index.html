@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" media="screen" href="../style/common.screen.css">
+		<link rel="stylesheet" media="screen" href="index.screen.css">
+
+		<title>Button Group - Vanilla Patterns</title>
+	</head>
+	<body>
+		<div id="example">
+			<header>
+				<h1><a href="..">Vanilla Patterns</a></h1>
+
+				<nav>
+					<ul>
+						<li><a href="../drag-order">Previous</a></li>
+					</ul>
+				</nav>
+			</header>
+
+			<h2>Button group</h2>
+
+			<fieldset id="group">
+				<legend>Calculation interval</legend>
+
+				<input type="radio" id="period-1y" name="period" value="1y">
+				<label for="period-1y">1y</label>
+
+				<input type="radio" id="period-2y" name="period" value="2y">
+				<label for="period-2y">2y</label>
+
+				<input type="radio" id="period-5y" name="period" value="5y">
+				<label for="period-5y">5y</label>
+
+				<input type="radio" id="period-all" name="period" value="all">
+				<label for="period-all">all</label>
+			</fieldset>
+
+			<div id="notes">
+				<p>
+					Button groups are switches that let the user toggle between multiple options. Semantically they are radio
+					buttons, and in this example, we use radio buttons and simply provide CSS to make them look like buttons.
+					There is no JavaScript in this example. This pattern is usually used when the number of options is limited.
+					For a larger set of options, a select list or an auto-complete input is more common.
+				</p>
+
+				<p>
+					In terms of accessibility, grouped controls are expected to represent a single tab stop, and arrow keys are
+					used to navigate between the members of the group. When using radio buttons, we do not need to do anything
+					specifically to meet this requirement as radio groups work that way out of the box.
+				</p>
+
+				<p>
+					We style the legend as a form control label, even though it is not clickable and does not focus the control.
+					This information sets the context for the radio buttons and influences the interpretation of the "y" letter.
+					If the group can be understood to mean a time interval without this extra information and there is a need to
+					save extra UI space, we would hide the legend visually.
+				</p>
+			</div>
+		</div>
+	</body>
+</html>

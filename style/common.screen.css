@@ -83,6 +83,7 @@ body {
 	/* We don't need :root. Variables on BODY will propagate too all of the elements on the page. */
 	--line-height: 1.7; /* We use a float for line height because it makes it easier to perform calculations for, say, heights. */
 	--accent-color: #994709;
+	--accent-active-color: #693004;
 	--secondary-color: #281b03d6;
 	--secondary-fg-color: #fffcf6;
 	--focus-outline-color: var(--accent-color);
