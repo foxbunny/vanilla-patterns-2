@@ -16,6 +16,10 @@
 	transition: background-color var(--toggle-animation-dur) ease;
 }
 
+.toggle:focus-visible + span {
+	outline: max(2px, 0.2em) solid var(--focus-outline-color);
+}
+
 .toggle:checked + span {
 	background-color: var(--active-color);
 }
