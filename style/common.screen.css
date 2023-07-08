@@ -89,12 +89,17 @@ body {
 	--secondary-color: #281b03d6;
 	--secondary-fg-color: #fffcf6;
 	--secondary-disabled-fg-color: #dad7cd;
-	--focus-outline-color: var(--accent-color);
+	--focus-outline-color: var(
+	--accent-color);
 	--error-color: #ac0606;
+	--active-color: #59b90a;
+	--active-disabled-color: #5d6556;
 	--error-bg-color: #f2e6e6;
 	--dirty-bg: #f4f4f3ba;
-
-
+	--form-control-border: #444;
+	--form-control-disabled-border: #666;
+	--form-control-inactive-color: #c4c4c4;
+	--form-control-inactive-disabled-color: #ccc;
 	font-family: Poppins, sans-serif;
 	line-height: var(--line-height);
 }
@@ -108,7 +113,7 @@ pre {
 	overflow-x: auto;
 	padding: 1em;
 
-	border: 1px solid #aaa;
+	border: 0.1em solid #aaa;
 	background: #f1f1f1;
 }
 
@@ -125,7 +130,7 @@ code, kbd {
 	padding: 0.1em 0.2em;
 
 	color: #994709;
-	border: 1px solid #aaa;
+	border: 0.1em solid #aaa;
 	background: #f1f1f1;
 	border-radius: 0.1em;
 }
@@ -147,13 +152,13 @@ th, td {
 }
 
 input:not([type=checkbox]):not([type=radio]), button, select, textarea {
-	border: 0.1em solid #444;
+	border: 0.1em solid var(--form-control-border);
 	padding: 0.5em;
 	border-radius: 0.2em;
 }
 
 input:is([type=checkbox], [type=radio]) {
-	border: 0.1em solid #444;
+	border: 0.1em solid var(--form-control-border);
 	width: 1em;
 	height: 1em;
 }

@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" media="screen" href="../style/common.screen.css">
+		<link rel="stylesheet" media="screen" href="index.screen.css">
+
+		<script type="module" src="index.client.js"></script>
+
+		<title>Toggle switch - Vanilla Patterns</title>
+	</head>
+	<body>
+		<div id="example">
+			<header>
+				<h1><a href="..">Vanilla Patterns</a></h1>
+
+				<nav>
+					<ul>
+						<li><a href="../button-group">Previous</a></li>
+					</ul>
+				</nav>
+			</header>
+
+			<h2>Toggle switch</h2>
+
+			<section id="settings">
+				<p id="notification-state" aria-live="polite">In-app notifications are disabled</p>
+
+				<label for="notifications-enabled">
+					<span>Show in-app notifications</span>
+					<input type="checkbox" class="toggle" id="notifications-enabled" name="notifications-enabled">
+					<span></span>
+				</label>
+
+				<label for="privacy-shield-enabled">
+					<span>Enable privacy shield</span>
+					<input type="checkbox" class="toggle" id="privacy-shield-enabled" name="privacy-shield-enabled" checked disabled>
+					<span></span>
+				</label>
+			</section>
+
+			<div id="notes">
+				<p>
+					Toggle switches are two-state controls. Semantically they behave the same way as a single checkbox. The main
+					advantage of a toggle switch over checkboxes is it makes the interaction more obvious to the user, and it can
+					be designed to have a larger target area. When using toggle switches, keep in mind that a lot of applications
+					choose to take immediate effect. This means that there is no secondary action (e.g., "Save", "Apply filter",
+					etc.). We assume that users are expecting this behavior when they are operating toggle switches.
+				</p>
+
+				<p>
+					Toggle switches can be styled different ways. They may include a label for each state in the switch, or be
+					blank. When using text labels, it is imperative to ensure they are readable. The text size should ideally be
+					the same as the surrounding text, and no less than 14px. When using icons, we must ensure they are
+					unambiguous, and they have sufficient contrast to the background for both states. We must not rely solely on
+					color to indicate the state. The typical color usage for toggle switches is to have a high-contrast accent
+					color in the on state and no color in the off state.
+				</p>
+
+				<p>
+					In this example, we use a color-only version of the checkbox. We use the gray background to signal the off
+					state, but we keep the button white so that it stands out, and so that it does not look disabled.
+				</p>
+			</div>
+		</div>
+	</body>
+</html>

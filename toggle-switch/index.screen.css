@@ -1,0 +1,72 @@
+.toggle {
+	position: absolute;
+	right: 100vw;
+	opacity: 0;
+}
+
+.toggle + span {
+	--toggle-animation-dur: 150ms;
+	display: inline-flex;
+	align-items: center;
+	height: 2em;
+	width: 3.5em;
+	padding: 0.1em; /* Distance between the border and the button */
+	border: 0.1em solid var(--form-control-border);
+	border-radius: 1em;
+	transition: background-color var(--toggle-animation-dur) ease;
+}
+
+.toggle:checked + span {
+	background-color: var(--active-color);
+}
+
+.toggle:not(:checked) + span {
+	background-color: var(--form-control-inactive-color);
+}
+
+.toggle:disabled + span {
+	background-color: var(--form-control-inactive-disabled-color);
+	border-color: var(--form-control-disabled-border);
+}
+
+.toggle:checked:disabled + span {
+	background-color: var(--active-disabled-color);
+}
+
+.toggle + span::before {
+	content: '';
+	display: block;
+	height: 100%;
+	aspect-ratio: 1;
+
+	border: 0.1em solid var(--form-control-border);
+	border-radius: 1em;
+	background-color: var(--secondary-fg-color);
+	transition: transform var(--toggle-animation-dur);
+}
+
+.toggle:checked + span::before {
+	transform: translateX(1.5em);
+}
+
+.toggle:disabled + span::before {
+	background-color: var(--form-control-inactive-disabled-color);
+	border-color: var(--form-control-disabled-border);
+}
+
+#settings {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+}
+
+[for="notifications-enabled"], [for="privacy-shield-enabled"] {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	gap: 0.5em;
+	max-width: 30ch;
+
+	font-weight: 900;
+}
