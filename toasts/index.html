@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" media="screen" href="../style/common.screen.css">
+		<link rel="stylesheet" media="screen" href="index.screen.css">
+
+		<script type="module" src="index.client.js"></script>
+
+		<title>Toasts - Vanilla patterns</title>
+	</head>
+	<body>
+		<div id="example">
+			<header>
+				<h1><a href="..">Vanilla patterns</a></h1>
+
+				<nav>
+					<ul>
+						<li><a href="../toggle-switch">Previous</a></li>
+					</ul>
+				</nav>
+			</header>
+
+
+			<h2>Toasts</h2>
+
+			<div id="triggers">
+				<button value="info">Create an info toast</button>
+				<button value="error">Create an error toast</button>
+			</div>
+
+			<div id="toast-list"></div>
+
+			<template id="toast">
+				<div class="toast" aria-live="polite">
+					<div></div>
+					<button value="dismiss">Dismiss</button>
+				</div>
+			</template>
+
+			<div id="notes">
+				<p>
+					Toasts are messages that are displayed outside the regular flow of
+					content to provide timely information about an event on the page.
+					This implementation uses an ARIA live message so that the toast
+					message is announced immediately to screen reader users. The end of
+					the animation of the progress bar doubles as an event to trigger the
+					removal of the toast element from the page.
+				</p>
+
+				<p>
+					An empty element is used to hold a list of toasts. The toast list
+					element is used so that multiple toasts can be added to the page
+					without overlapping each other.
+				</p>
+
+				<p>
+					Although using toasts is tempting, you should generally avoid it
+					whenever showing feedback right next to the form control is an
+					option. The reason for this is that some users use screen magnifiers
+					that allows them to only see a small portion of the screen at once.
+					For these users, toasts are usually too far outside the visible area
+					for them to notice.
+				</p>
+			</div>
+		</div>
+	</body>
+</html>

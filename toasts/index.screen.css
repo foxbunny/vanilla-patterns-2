@@ -1,0 +1,103 @@
+#toast-list:not(:empty) {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  top: 1em;
+  right: 1em;
+  width: min(30em, calc(100% - 2em));
+}
+
+#toast-list:empty {
+  pointer-events: none;
+}
+
+.toast {
+  position: relative;
+  padding: 0.5em 0.5em 0.7em;
+  overflow: hidden;
+  display: flex;
+  gap: 1em;
+  align-items: center;
+
+  box-shadow: 0 0.2em 0.5em rgba(0, 0, 0, 0.3);
+  background: white;
+  border-radius: 0.2em;
+  transition: transform 0.5s;
+}
+
+.toast > :first-child {
+  flex: 1;
+}
+
+.toast button[value="dismiss"] {
+  flex: none;
+  padding: 0 0.5em;
+
+  border: none;
+  background: none;
+  color: var(--accent-color);
+  text-transform: uppercase;
+  font-size: 0.875em;
+  font-weight: bold;
+}
+
+.toast:not([data-clear]) {
+  animation: 0.3s ease-out fly-in;
+}
+
+.toast[data-clear] {
+  animation: 0.3s ease-out fly-out;
+}
+
+.toast::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 0.2em;
+  width: 100%;
+
+  /*
+  This animation determines when the toast is dismissed.
+  In this example, we are keeping the toast visible for 10s.
+  In addition to keeping the toast alive, it also shows up
+  as a progress bar.
+   */
+  animation: 10s linear forwards expire;
+}
+
+.toast[data-level=info]::after {
+  background: var(--progress-bg);
+}
+
+.toast[data-level=error]::after {
+  background: var(--progress-critical-bg);
+}
+
+.toast:hover::after {
+  /* We use the hover state to disable the animation */
+  animation-play-state: paused;
+}
+
+@keyframes expire {
+  from {
+    transform: scaleX(1);
+  }
+
+  to {
+    transform: scaleX(0);
+  }
+}
+
+@keyframes fly-in {
+  from {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes fly-out {
+  to {
+    transform: translateX(100%);
+  }
+}

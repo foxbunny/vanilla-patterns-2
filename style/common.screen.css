@@ -100,6 +100,9 @@ body {
 	--form-control-disabled-border: #666;
 	--form-control-inactive-color: #c4c4c4;
 	--form-control-inactive-disabled-color: #ccc;
+	--progress-bg: #74d004;
+	--progress-critical-bg: #b80707;
+
 	font-family: Poppins, sans-serif;
 	line-height: var(--line-height);
 }
